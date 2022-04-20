@@ -7,7 +7,7 @@ const catalog = [
       eight: 3
     },
     img: '/images/01.jpg',
-    name: "Clearly not watching TV",
+    name: "Not watching TV",
     category: 'Grandma T',
   },
   {

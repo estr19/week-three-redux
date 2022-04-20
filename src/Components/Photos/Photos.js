@@ -2,6 +2,7 @@ import photos from '../../data/catalog';
 import Photo from "./Photo";
 import { useSelector } from "react-redux";
 import { getSelectedCategory } from "../../redux/photoSlice";
+import AllFilters from '../Filters/AllFilters';
 
 const Photos = () => {
   const selectedCategory = useSelector(getSelectedCategory);
@@ -9,7 +10,10 @@ const Photos = () => {
   
   return (
     <div>
-      <h2>Make your photograph and size selections below:</h2>
+      <div className='main'>
+        <AllFilters />
+        <h2>Make your photograph and size selections below:</h2>
+      </div>
       <div className='list'>
         {data
         .filter(photo => {

@@ -21,9 +21,7 @@ const Cart = () => {
     <div id="items" className='centered'>
       <div className="cartRow">
         <img className='cartIcon' src="./cartLogo.jpg" alt="cart_logo"/>
-        {/* <i className="fa-solid fa-cart-circle-xmark" onClick={() => dispatch(clearCart({cartItems: 0}))}></i> */}
       </div>
-      <h2>Estimated Total ({quantity} items): ${totalPrice}</h2>
       {/* <span><button onClick={() => clearSelection()}>Reset Selections</button></span> */}
         <button onClick={() => dispatch(clearCart({cartItems: 0}))}>Empty Cart</button>
       <p style={{textAlign: 'center'}}><u>Subtotal</u>:
@@ -33,6 +31,7 @@ const Cart = () => {
       <strong>5x7</strong> prints - {quantityFive} @ $1.5/ea
       <br></br>
       <strong>8x10</strong> prints - {quantityEight} @ $3/ea</p>
+      <h2>Estimated Total ({quantity} items): ${totalPrice}</h2>
       {cartItems.map((cartItem, index) => <CartItem cartItem={cartItem} key={index} />)}
     </div>
   )

@@ -15,6 +15,11 @@ const Photo = ({photo}) => {
     setQuantityFive(0);
     setQuantityEight(0);
   }
+
+  const addToCart = () => {
+    if (quantityFour === 0 && quantityFive === 0 && quantityEight === 0) alert('Cannot add ZERO items!')
+    else dispatch(addItemToCart({photo, quantity, quantityFour, quantityFive, quantityEight}))
+  }
   
   //if quantity < 1 alert;
 
@@ -35,7 +40,7 @@ const Photo = ({photo}) => {
         quantityEight={quantityEight} setQuantityEight={setQuantityEight}
       />
       <span><button onClick={() => clearSelection()}>clear selection</button>
-      <button className="add" onClick={() => dispatch(addItemToCart({photo, quantity, quantityFour, quantityFive, quantityEight}))}>add to cart</button></span>
+      <button className="add" onClick={() => addToCart()}>add to cart</button></span>
     </div>
   )
 }

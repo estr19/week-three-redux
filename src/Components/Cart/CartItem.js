@@ -8,9 +8,7 @@ const CartItem = ({cartItem}) => {
   const total = photos.price.four * cartItem.quantityFour + photos.price.five * cartItem.quantityFive + photos.price.eight * cartItem.quantityEight;
 
   return (
-    <p className='cartItem'>{cartItem.quantity} {cartItem.quantity === 1 ? 'copy' : 'copies'} of "{photos.name}" - &nbsp;<i><strong>${total}</strong></i>&nbsp;
-      <i className="fa-solid fa-trash-can" onClick={() => dispatch(removeItemFromCart({cartItemId: cartItem.id}))}></i>
-    </p>
+    <p className='cartItem'><i className="fa-solid fa-trash-can" onClick={() => dispatch(removeItemFromCart({cartItemId: cartItem.id}))}></i> &nbsp; {cartItem.quantity} {cartItem.quantity === 1 ? 'copy' : 'copies'} of "{photos.name}" - &nbsp;<i><strong>${total}</strong></i>&nbsp;</p>
   )
 }
 
