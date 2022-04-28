@@ -46,16 +46,20 @@ body {
   padding: 1em;
 }
 
-.left,
+.left {
+  display: flex;
+}
+
 .right {
   display: flex;
+  position: relative;
 }
 
 .badge {
   position: absolute;
   cursor: pointer;
-  top: .9em;
-  right: .9em;
+  top: 0;
+  right: 0;
   min-width: 1em;
   min-height: 1em;
   padding: 0.25em .5em;
@@ -75,6 +79,7 @@ body {
   background-color: #f2b38d;
   text-align: left;
   border: 2px solid #000000;
+  width: max-content;
 }
 
 .link {
@@ -144,6 +149,12 @@ h3 {
   background-color: rgba(200, 198, 198, 0.85);
   margin: 1em 2em;
   padding: 1em;
+}
+
+.cartPage {
+  background-color: #fdce98;
+  margin: 1em auto;
+  padding: 2em;
 }
 
 .filterItems {
@@ -227,4 +238,54 @@ button {
 .add {
   background-color: #FF7BA9;
   color: #000000;
+}
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 600px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  width: 100%;
+  height: 400px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+@media all and (max-width: 500px) {
+  html {
+    font-size: 10px;
+  }
+
+  img {
+    width: 110px;
+    height: auto;
+  }
+
+  .cartIcon {
+    width: 50px;
+    height: auto;
+  }
+
+  .slideshow {
+    width: 95%;
+  }
+
+  .item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 155px;
+  }
 }

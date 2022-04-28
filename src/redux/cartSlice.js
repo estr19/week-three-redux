@@ -19,11 +19,14 @@ export const cartSlice = createSlice({
         totalPrice: action.payload.quantityFour * action.payload.photo.price.four + action.payload.quantityFive * action.payload.photo.price.five + action.payload.quantityEight * action.payload.photo.price.eight,
       })
     },
+    // updateQuantity: (state, action) => {
+      
+    // },
     removeItemFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(
         cartItem => cartItem.id !== action.payload.cartItemId)
     },
-    clearCart: (state) => {
+    clearCart: state => {
       state.cartItems = []
     },
   },
@@ -50,7 +53,7 @@ export const getQuantityEight = state => {
   }, 0)
 }
 export const getCartItems = state => state.cart.cartItems;
-export const { addItemToCart, removeItemFromCart, clearCart } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, clearCart,  } = cartSlice.actions;
 export default cartSlice.reducer;
 
 // const item = state.cartItems.find(item => item.name === state.cartItems.name);

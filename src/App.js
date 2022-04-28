@@ -26,7 +26,7 @@ function App() {
             <Link to='/about' className='link' >About</Link>
           </div>
           <div className='right'>
-            <Link to='/cart' className='link' >Cart</Link>
+            <Link to='/cart' className='link'>Cart</Link>
             <span className='badge' onClick={() => setIsShown(!isShown)}>{quantity}</span>
             {isShown && (
               <Cart />
