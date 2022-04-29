@@ -41,8 +41,8 @@ function App() {
           <Route path='/cart' element={<CartPage />}></Route>
         </Routes>
         <nav className='bottom'>
-          <p className='disclaimer'>DISCLAIMER: THIS WEBSITE IS FOR ENTERTAINING AND ENJOYMENT PURPOSES ONLY.<br></br>
-            The information, including but not limited to, text, graphics, imag</p>
+          <p className='disclaimer'>DISCLAIMER: THIS WEBSITE IS FOR ENTERTAINMENT AND ENJOYMENT PURPOSES ONLY.<br></br>
+          All images contained on this website remain the property of Lena Green. Images may not be downloaded, reproduced, copied, projected, or used in any way without express written permission. All work contained within this blog is © Lena Green unless otherwise noted and may not be copied, downloaded, blogged, distributed, or reproduced in any form without the express written consent of Lena Green. Failure to comply with these rules, as listed above, is illegal and will result in prompt legal action.</p>
         </nav>
       </Router>
     </div>
