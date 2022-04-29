@@ -103,6 +103,7 @@ body {
   margin: .5em;
   padding: .75em 1.25em;
   border-radius: 10px;
+  border: 2px solid #000000;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
