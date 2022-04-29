@@ -7,11 +7,8 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addItemToCart: (state, action) => {
-      const timeId = new Date().getTime();
       state.cartItems.push({
-        id: timeId,
-        name: action.payload.photo.name,
-        photoId: action.payload.photo.id,
+        ...action.payload.photo,
         quantity: action.payload.quantityFour + action.payload.quantityFive + action.payload.quantityEight,
         quantityFour: action.payload.quantityFour,
         quantityFive: action.payload.quantityFive,
@@ -19,9 +16,20 @@ export const cartSlice = createSlice({
         totalPrice: action.payload.quantityFour * action.payload.photo.price.four + action.payload.quantityFive * action.payload.photo.price.five + action.payload.quantityEight * action.payload.photo.price.eight,
       })
     },
-    // updateQuantity: (state, action) => {
-      
-    // },
+    updateQuantity: (state, action) => {
+      const newCart = [];
+      state.cartItems.forEach(item => {
+        if (item.id === action.payload.photo.id) {
+          let countNew = item.quantity + action.payload.quantity;
+          let totalSum = item.price.four * item.quantityFour + item.price.five * item.quantityFive + item.price.eight * item.quantityEight;
+          const changeCart = {...item, quantity: countNew, totalPrice: totalSum};
+          newCart.push(changeCart);
+        } else {
+          newCart.push(item);
+        }
+      })
+      state.cartItems = newCart;
+    },
     removeItemFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(
         cartItem => cartItem.id !== action.payload.cartItemId)
@@ -53,18 +61,5 @@ export const getQuantityEight = state => {
   }, 0)
 }
 export const getCartItems = state => state.cart.cartItems;
-export const { addItemToCart, removeItemFromCart, clearCart,  } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, clearCart, updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
-
-// const item = state.cartItems.find(item => item.name === state.cartItems.name);
-// if (!state.cartItems.includes(item)) {
-//   state.cartItems.push({
-//   id: timeId,
-//   photoId: action.payload.photo.id,
-//   quantity: action.payload.quantity,
-//   quantityFour: action.payload.quantityFour,
-//   quantityFive: action.payload.quantityFive,
-//   quantityEight: action.payload.quantityEight,
-//   totalPrice: action.payload.quantityFour * action.payload.photo.price.four + action.payload.quantityFive * action.payload.photo.price.five + action.payload.quantityEight * action.payload.photo.price.eight,
-// })
-// }

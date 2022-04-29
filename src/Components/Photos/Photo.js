@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch , useSelector } from "react-redux";
-import { addItemToCart , getCartItems ,  } from "../../redux/cartSlice";
+import { addItemToCart , getCartItems , updateQuantity } from "../../redux/cartSlice";
 import ChangeQuantity from "../Cart/ChangeQuantity";
 
 const Photo = ({photo}) => {
@@ -10,7 +10,7 @@ const Photo = ({photo}) => {
   const [quantityFive, setQuantityFive] = useState(0);
   const [quantityEight, setQuantityEight] = useState(0);
   const quantity = useState(quantityFour + quantityFive + quantityEight);
-  // console.log(photo);
+  const itemInCart = cartItems.some(item => item.id === photo.id);
 
   const clearSelection = () => {
     setQuantityFour(0);
@@ -20,26 +20,13 @@ const Photo = ({photo}) => {
 
   const addToCart = (name) => {
     if (quantityFour === 0 && quantityFive === 0 && quantityEight === 0) alert('Cannot add ZERO items!')
-    else {
-      const item = cartItems.find(item => item.name === name);
-      // console.log(item);
-      if (cartItems.includes(item)) {
-        alert ('Item already added!');
-        // dispatch(updateQuantity({photo, quantity, quantityFour, quantityFive, quantityEight}));
-      }
-      else if (!cartItems.includes(item)) {
-        dispatch(addItemToCart({photo, quantity, quantityFour, quantityFive, quantityEight}));
-        clearSelection();
-      }
+    else if (!itemInCart) {
+      dispatch(addItemToCart({photo, quantity, quantityFour, quantityFive, quantityEight}));
+      clearSelection();
+    } else {
+      dispatch(updateQuantity({photo, quantity, quantityFour, quantityFive, quantityEight}));
     }
   }
-
-  // const addItem = (id) => {
-  //   const drug = data.find(drug => drug.id === id);
-  //   if (!cart.includes(drug)) {
-  //     setCart([...cart, drug]);
-  //   }
-  // }
 
   return (
     <div className='centered item'>
