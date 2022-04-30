@@ -299,8 +299,12 @@ button {
     font-size: 10px;
   }
 
+  #items {
+    width: min-content;
+  }
+
   img {
-    width: 110px;
+    width: 85%;
     height: auto;
   }
 
@@ -317,6 +321,6 @@ button {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 155px;
+    width: 85%;
   }
 }
