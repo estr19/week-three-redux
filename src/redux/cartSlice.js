@@ -21,8 +21,11 @@ export const cartSlice = createSlice({
       state.cartItems.forEach(item => {
         if (item.id === action.payload.photo.id) {
           let countNew = item.quantity + action.payload.quantity;
-          let totalSum = item.price.four * action.payload.quantityFour + item.price.five * action.payload.quantityFive + item.price.eight * action.payload.quantityEight;
-          const changeCart = {...item, quantity: countNew, totalPrice: totalSum};
+          let countNewFour = item.quantityFour + action.payload.quantityFour;
+          let countNewFive = item.quantityFive + action.payload.quantityFive;
+          let countNewEight = item.quantityEight + action.payload.quantityEight;
+          let totalSum = item.price.four * countNewFour + item.price.five * countNewFive + item.price.eight * countNewEight;
+          const changeCart = {...item, quantity: countNew, quantityFour: countNewFour, quantityFive: countNewFive, quantityEight: countNewEight, totalPrice: totalSum};
           newCart.push(changeCart);
         } else {
           newCart.push(item);
