@@ -21,7 +21,7 @@ export const cartSlice = createSlice({
       state.cartItems.forEach(item => {
         if (item.id === action.payload.photo.id) {
           let countNew = item.quantity + action.payload.quantity;
-          let totalSum = item.price.four * item.quantityFour + item.price.five * item.quantityFive + item.price.eight * item.quantityEight;
+          let totalSum = item.price.four * action.payload.quantityFour + item.price.five * action.payload.quantityFive + item.price.eight * action.payload.quantityEight;
           const changeCart = {...item, quantity: countNew, totalPrice: totalSum};
           newCart.push(changeCart);
         } else {

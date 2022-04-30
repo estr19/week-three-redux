@@ -4,7 +4,7 @@ import { removeItemFromCart } from "../../redux/cartSlice";
 
 const CartItem = ({cartItem}) => {
   const dispatch = useDispatch();
-  const photos = data.find(item => item.id === cartItem.photoId);
+  const photos = data.find(item => item.id === cartItem.id);
   const total = photos.price.four * cartItem.quantityFour + photos.price.five * cartItem.quantityFive + photos.price.eight * cartItem.quantityEight;
 
   return (
