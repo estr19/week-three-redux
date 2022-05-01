@@ -1,8 +1,9 @@
+import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { getCartItems, getTotalPrice, getQuantityFour, getQuantityFive, getQuantityEight, clearCart } from "../../redux/cartSlice";
 import CartItem from "./CartItem";
 
-const Cart = () => {
+const Cart = ({isShown, setIsShown}) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(getCartItems);
   const totalPrice = useSelector(getTotalPrice);
@@ -13,6 +14,7 @@ const Cart = () => {
 
   return (
     <div id="items" className='centered'>
+      <i className="fa-solid fa-xmark"  onClick={() => setIsShown(!isShown)}></i>
       <div className="cartRow">
         <img className='cartIcon' src="./cartLogo.jpg" alt="cart_logo"/>
       </div>

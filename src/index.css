@@ -82,8 +82,18 @@ body {
   border: 1px solid #000000;
   font-size: 1em;
   font-weight: 700;
-  color: white;
+  color: #FFFFFF;
   background-color: #9D9D9D;
+}
+
+.fa-xmark {
+  position: absolute;
+  top: .75em;
+  right: .35em;
+}
+
+.fa-xmark:hover {
+  color: #FFFFFF;
 }
 
 #items {
@@ -109,6 +119,20 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   color: #000000;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+
+button.swal2-styled.swal2-confirm {
+  background-color: #FF7BA9;
+  color: #000000;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  margin: .5em;
+  padding: .75em 1.25em;
+  border-radius: 10px;
   border-width: 2px;
   border-style: outset;
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { addItemToCart , getCartItems , updateQuantity } from "../../redux/cartSlice";
 import ChangeQuantity from "../Cart/ChangeQuantity";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const Photo = ({photo}) => {
   const dispatch = useDispatch();
@@ -12,6 +14,8 @@ const Photo = ({photo}) => {
   const quantity = useState(quantityFour + quantityFive + quantityEight);
   const itemInCart = cartItems.some(item => item.id === photo.id);
 
+  const MySwal = withReactContent(Swal)
+
   const clearSelection = () => {
     setQuantityFour(0);
     setQuantityFive(0);
@@ -19,12 +23,20 @@ const Photo = ({photo}) => {
   }
 
   const addToCart = (name) => {
-    if (quantityFour === 0 && quantityFive === 0 && quantityEight === 0) alert('Cannot add ZERO items!')
-    else if (!itemInCart) {
+    if (quantityFour === 0 && quantityFive === 0 && quantityEight === 0) {
+      MySwal.fire({
+        title: <p>Please don't try to add ZERO items!</p>,
+        confirmButtonText: `Let's do better next time 😉`,
+        icon: 'error',
+        buttonsStyling: true
+      })
+    }
+    if (!itemInCart) {
       dispatch(addItemToCart({photo, quantity, quantityFour, quantityFive, quantityEight}));
       clearSelection();
     } else {
       dispatch(updateQuantity({photo, quantity, quantityFour, quantityFive, quantityEight}));
+      clearSelection();
     }
   }
 

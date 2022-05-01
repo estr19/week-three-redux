@@ -29,7 +29,7 @@ function App() {
             <Link to='/cart' className='link'>Cart</Link>
             <span className='badge' onClick={() => setIsShown(!isShown)}>{quantity}</span>
             {isShown && (
-              <Cart />
+              <Cart isShown={isShown} setIsShown={setIsShown} />
             )}
           </div>
         </nav>
