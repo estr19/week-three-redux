@@ -14,7 +14,7 @@ const Photo = ({photo}) => {
   const quantity = useState(quantityFour + quantityFive + quantityEight);
   const itemInCart = cartItems.some(item => item.id === photo.id);
 
-  const MySwal = withReactContent(Swal)
+  const MySwal = withReactContent(Swal);
 
   const clearSelection = () => {
     setQuantityFour(0);
@@ -22,7 +22,7 @@ const Photo = ({photo}) => {
     setQuantityEight(0);
   }
 
-  const addToCart = (name) => {
+  const addToCart = () => {
     if (quantityFour === 0 && quantityFive === 0 && quantityEight === 0) {
       MySwal.fire({
         title: <p>Please don't try to add ZERO items!</p>,
@@ -50,7 +50,7 @@ const Photo = ({photo}) => {
         quantityEight={quantityEight} setQuantityEight={setQuantityEight}
       />
       <span><button onClick={() => clearSelection()}>clear selection</button>
-      <button className="add" onClick={() => addToCart(photo.name)}>add to cart</button></span>
+      <button className="add" onClick={() => addToCart()}>add to cart</button></span>
     </div>
   )
 }

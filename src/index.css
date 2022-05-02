@@ -38,6 +38,21 @@ body {
   text-align: center;
 }
 
+#navbar {
+  position: sticky;
+  overflow: hidden;
+  top: 0;
+}
+
+button.scrollBack {
+  position: fixed;
+  bottom: 1.5em;
+  right: 2em;
+  padding: .75em .5em;
+  background-color: #FF7BA9;
+  color: #000000;
+}
+
 .top {
   background: #fdce98; 
   display: flex;
@@ -97,7 +112,7 @@ body {
 }
 
 #items {
-  position: absolute;
+  position: fixed;
   top: 5em;
   right: 2em;
   padding: 1em;

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from './Components/About';
-import Video from './Components/Video';
-import Main from './Components/Main';
+import Cart from './Components/Cart/Cart';
 import CartPage from './Components/CartPage';
-import { useSelector } from "react-redux";
+import Main from './Components/Main';
+import Video from './Components/Video';
 import { getQuantityFour, getQuantityFive, getQuantityEight } from "./redux/cartSlice";
 import './index.css';
-import Cart from './Components/Cart/Cart';
 
 function App() {
   const quantityFour = useSelector(getQuantityFour);
@@ -19,7 +19,7 @@ function App() {
   return (
     <div>
       <Router>
-        <nav className='top'>
+        <nav id='navbar' className='top'>
           <div className='left'>
             <Link to='/' className='link' >Home</Link>
             <Link to='/videos' className='link' >Videos</Link>
